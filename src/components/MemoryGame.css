@@ -1,0 +1,56 @@
+.game-container {
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
+  max-width: fit-content;
+}
+
+.game-container__img-container {
+  transform-style: preserve-3d;
+}
+
+.game-container__img-container:hover {
+  width: 14rem;
+  height: 14rem;
+
+  animation-name: flip;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.game-container__img {
+  position: relative;
+
+  width: 14rem;
+  height: 14rem;
+
+  background-size: cover;
+  background-position: center;
+
+  /* transform-style: preserve-3d; */
+  backface-visibility: hidden;
+}
+
+.game-container__img::after {
+  content: "";
+
+  width: 14rem;
+  height: 14rem;
+
+  position: absolute;
+  inset: 0;
+
+  background-color: gray;
+  /* box-shadow: 0 5px 5px #999; */
+
+  z-index: -1;
+}
+
+@keyframes flip {
+  to {
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
